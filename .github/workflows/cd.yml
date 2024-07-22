@@ -97,14 +97,14 @@ jobs:
               body: output
             })
 
-      - name: Debugging - Check Ref and Event
-        run: |
-            echo "GITHUB REF: ${{ github.ref }}"
-            echo "GITHUB EVENT: ${{ github.event.pull_request.merged }}"
-        if: always()
+      # - name: Debugging - Check Ref and Event
+      #   run: |
+      #       echo "GITHUB REF: ${{ github.ref }}"
+      #       echo "GITHUB EVENT: ${{ github.event.pull_request.merged }}"
+      #   if: always()
 
       - name: Terraform Apply
-        if: github.ref == 'main' && github.event.pull_request.merged
+        if: github.ref == 'refs/heads/main' && github.event.pull_request.merged
         run: terraform apply -auto-approve -input=false
           -var="confluent_cloud_api_key=$TF_VAR_CONFLUENT_CLOUD_API_KEY"
           -var="confluent_cloud_api_secret=$TF_VAR_CONFLUENT_CLOUD_API_SECRET"
