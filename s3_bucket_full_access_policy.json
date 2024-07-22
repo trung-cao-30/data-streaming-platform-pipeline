@@ -5,8 +5,8 @@
         "Effect": "Allow",
         "Action": "s3:*",
         "Resource": [
-          "arn:aws:s3:::platform-engineering-terraform-state",
-          "arn:aws:s3:::platform-engineering-terraform-state/*"
+          "arn:aws:s3:::trung-cao-terraform-backend-bucket",
+          "arn:aws:s3:::trung-cao-terraform-backend-bucket/*"
         ]
       }
     ]
