@@ -11,11 +11,17 @@ terraform {
 # Configure the terraform backend to store the terraform state
 terraform {
   backend "s3" {
-    bucket = "trung-cao-terraform-backend-bucket"
+    bucket = var.aws_s3_backend_bucket
     key    = "terraform/all-state/data-streaming-platform.tfstate"
     region = "us-east-1"
     encrypt = true
   }
+}
+
+variable "aws_s3_backend_bucket" {
+  description = "AWS S3 backend bucket"
+  type        = string
+  sensitive = "true"
 }
 
 variable "confluent_cloud_api_key" {
