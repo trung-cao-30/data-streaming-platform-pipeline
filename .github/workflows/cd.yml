@@ -27,7 +27,8 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
-        environment: [ staging, prod ]
+        # environment: [ staging, prod ]
+        environment: [ staging ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository to the runner
